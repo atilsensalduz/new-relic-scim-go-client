@@ -36,6 +36,9 @@ func (u *User) fill_defaults() {
 	if u.Timezone == "" {
 		u.Timezone = "Europe/Istanbul"
 	}
+	if !u.Active {
+		u.Active = true
+	}
 }
 
 type UserResponse struct {
