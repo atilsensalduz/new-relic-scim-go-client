@@ -73,7 +73,10 @@ type GroupsResponse struct {
 			Created      time.Time `json:"created"`
 			LastModified time.Time `json:"lastModified"`
 		} `json:"meta"`
-		Members []interface{} `json:"members"`
+		Members []struct {
+			Type  string `json:"type"`
+			Value string `json:"value"`
+		} `json:"members"`
 	} `json:"Resources"`
 }
 
