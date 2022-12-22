@@ -163,13 +163,13 @@ func (c *Client) GetUserByID(ctx context.Context, userID string) (userResponse U
 	return userResponse, userErrorResponse, nil
 }
 
-func (c *Client) GetUserByName(ctx context.Context, userName string) (userResponse UserResponse, userErrorResponse UserErrorResponse, err error) {
+func (c *Client) GetUserByName(ctx context.Context, userName string) (usersResponse UsersResponse, userErrorResponse UserErrorResponse, err error) {
 
 	fullUrl := fmt.Sprintf("%s%s", c.BaseUrl, userPath)
 
 	req, err := http.NewRequest("GET", fullUrl, nil)
 	if err != nil {
-		return userResponse, userErrorResponse, err
+		return usersResponse, userErrorResponse, err
 	}
 	q := req.URL.Query()
 	filter := fmt.Sprintf(`userName eq "%s"`, userName)
@@ -181,20 +181,20 @@ func (c *Client) GetUserByName(ctx context.Context, userName string) (userRespon
 
 	resp, err := c.doRequest(req)
 	if err != nil {
-		return userResponse, userErrorResponse, err
+		return usersResponse, userErrorResponse, err
 	}
-	if err := json.Unmarshal(resp, &userResponse); err != nil {
-		return userResponse, userErrorResponse, err
+	if err := json.Unmarshal(resp, &usersResponse); err != nil {
+		return usersResponse, userErrorResponse, err
 	}
 
-	if userResponse.Schemas[0] == "urn:ietf:params:scim:api:messages:2.0:Error" {
+	if usersResponse.Schemas[0] == "urn:ietf:params:scim:api:messages:2.0:Error" {
 		if err := json.Unmarshal(resp, &userErrorResponse); err != nil {
-			return userResponse, userErrorResponse, err
+			return usersResponse, userErrorResponse, err
 		}
 
 	}
 
-	return userResponse, userErrorResponse, nil
+	return usersResponse, userErrorResponse, nil
 }
 
 func (c *Client) CreateUser(ctx context.Context, user User) (userResponse UserResponse, userErrorResponse UserErrorResponse, err error) {
