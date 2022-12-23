@@ -20,41 +20,42 @@ Here is a simple example of how to use the library to create a new user:
 package main
 
 import (
+	"context"
 	"fmt"
 	"log"
 
-	"github.com/atileren/new-relic-scim-go-client"
+	"github.com/atileren/new-relic-scim-go-client/newrelicscim"
 )
 
 func main() {
 	// Create a new client
-	client, err := newrelicscim.NewClient("<your_api_key>", "<your_account_id>")
-	if err != nil {
-		log.Fatal(err)
-	}
-
+	client := newrelicscim.NewClient("<your_api_key>")
+	ctx := context.Background()
 	// Create a new user
-	userResponse, userErrorResponse, err := client.CreateUser(newrelicscim.User{
-				UserName: "john.doe@example.com",
-				Name: struct {
-					FamilyName string "json:\"familyName\""
-					GivenName  string "json:\"givenName\""
-				}{
-					FamilyName: "Doe",
-					GivenName:  "John",
-				},
-				Emails: []struct {
-					Primary bool   "json:\"primary\""
-					Value   string "json:\"value\""
-				}{
-					{
-						Primary: true,
-						Value:   "john.doe@example.com",
-					},
-				},
-			})
-	if userResponse.Status != "" {
-		log.fatal("error detail: " + errorResp.Detail)
+	user, userErrorResponse, err := client.CreateUser(ctx, newrelicscim.User{
+		UserName: "john.doe@example.com",
+		Name: struct {
+			FamilyName string "json:\"familyName\""
+			GivenName  string "json:\"givenName\""
+		}{
+			FamilyName: "Doe",
+			GivenName:  "John",
+		},
+		Emails: []struct {
+			Primary bool   "json:\"primary\""
+			Value   string "json:\"value\""
+		}{
+			{
+				Primary: true,
+				Value:   "john.doe@example.com",
+			},
+		},
+	})
+	if err != nil {
+		log.Fatal("request error: ", err)
+	}
+	if userErrorResponse.Status != "" {
+		log.Fatal("error detail: " + userErrorResponse.Detail)
 	}
 
 	fmt.Println("Successfully created user with ID:", user.ID)
