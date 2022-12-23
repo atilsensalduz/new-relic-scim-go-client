@@ -221,9 +221,7 @@ func (c *Client) CreateUser(ctx context.Context, user User) (userResponse UserRe
 		if err := json.Unmarshal(resp, &userErrorResponse); err != nil {
 			return userResponse, userErrorResponse, err
 		}
-
 	}
-
 	return userResponse, userErrorResponse, nil
 }
 
