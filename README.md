@@ -59,6 +59,7 @@ func main() {
 
 	fmt.Println("Successfully created user with ID:", user.ID)
 }
+```
 
 For more detailed examples and documentation, see the [GoDoc](https://godoc.org/github.com/atileren/new-relic-scim-go-client) documentation.
 
@@ -66,7 +67,7 @@ Contributing
 We welcome contributions to the new-relic-scim-go-client repository. If you have an idea for a new feature or bug fix, please open an issue to discuss it. If you would like to contribute code, please fork the repository and submit a pull request.
 
 License
-This library is licensed under the MIT License. See LICENSE for more details.
+This library is licensed under the MIT License. See [LICENSE](https://github.com/atileren/new-relic-scim-go-client/blob/main/LICENSE) for more details.
 
 
 
