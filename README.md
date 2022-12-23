@@ -2,7 +2,7 @@
 
 [![GoDoc](https://godoc.org/github.com/atileren/new-relic-scim-go-client?status.svg)](https://godoc.org/github.com/atileren/new-relic-scim-go-client)
 
-This repository contains a Go client library for interacting with the [New Relic SCIM API](https://docs.newrelic.com/docs/apis/scim-api). The SCIM API allows you to manage users and groups in your New Relic account.
+This repository contains a Go client library for interacting with the [New Relic SCIM API](https://docs.newrelic.com/docs/accounts/accounts/automated-user-management/automated-user-provisioning-single-sign/). The SCIM API allows you to manage users and groups in your New Relic account.
 
 ## Installation
 
