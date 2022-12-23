@@ -35,13 +35,13 @@ func main() {
 
 	// Create a new user
 	userResponse, userErrorResponse, err := client.CreateUser(newrelicscim.User{
-				UserName: u.Email,
+				UserName: "john.doe@example.com",
 				Name: struct {
 					FamilyName string "json:\"familyName\""
 					GivenName  string "json:\"givenName\""
 				}{
-					FamilyName: u.LastName,
-					GivenName:  u.FirstName,
+					FamilyName: "Doe",
+					GivenName:  "John",
 				},
 				Emails: []struct {
 					Primary bool   "json:\"primary\""
@@ -49,7 +49,7 @@ func main() {
 				}{
 					{
 						Primary: true,
-						Value:   u.Email,
+						Value:   "john.doe@example.com",
 					},
 				},
 			})
