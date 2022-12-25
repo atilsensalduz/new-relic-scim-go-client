@@ -14,16 +14,20 @@ const userPath = "Users"
 type User struct {
 	Schemas  []string `json:"schemas"`
 	UserName string   `json:"userName"`
-	Name     struct {
-		FamilyName string `json:"familyName"`
-		GivenName  string `json:"givenName"`
-	} `json:"name"`
-	Emails []struct {
-		Primary bool   `json:"primary"`
-		Value   string `json:"value"`
-	} `json:"emails"`
-	Active   bool   `json:"active"`
-	Timezone string `json:"timezone"`
+	Name     Name     `json:"name"`
+	Emails   []Email  `json:"emails"`
+	Active   bool     `json:"active"`
+	Timezone string   `json:"timezone"`
+}
+
+type Name struct {
+	FamilyName string `json:"familyName"`
+	GivenName  string `json:"givenName"`
+}
+
+type Email struct {
+	Primary bool   `json:"primary"`
+	Value   string `json:"value"`
 }
 
 func (u *User) fill_defaults() {

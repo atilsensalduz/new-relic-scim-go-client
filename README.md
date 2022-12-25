@@ -34,17 +34,11 @@ func main() {
 	// Create a new user
 	user, userErrorResponse, err := client.CreateUser(ctx, newrelicscim.User{
 		UserName: "john.doe@example.com",
-		Name: struct {
-			FamilyName string "json:\"familyName\""
-			GivenName  string "json:\"givenName\""
-		}{
+		Name: newrelicscim.Name{
 			FamilyName: "Doe",
 			GivenName:  "John",
 		},
-		Emails: []struct {
-			Primary bool   "json:\"primary\""
-			Value   string "json:\"value\""
-		}{
+		Emails: []newrelicscim.Email{
 			{
 				Primary: true,
 				Value:   "john.doe@example.com",
