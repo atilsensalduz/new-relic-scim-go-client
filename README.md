@@ -8,7 +8,7 @@ This repository contains a Go client library for interacting with the [New Relic
 
 To install the library, run:
 ```go
-go get github.com/atileren/new-relic-scim-go-client
+go get github.com/atileren/new-relic-scim-go-client/newrelicscim
 ```
 
 
