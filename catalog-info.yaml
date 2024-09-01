@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: new-relic-scim-go-client
+  annotations:
+    github.com/project-slug: atilsensalduz/new-relic-scim-go-client
+spec:
+  type: library
+  lifecycle: production
+  owner: atilsensalduz
