@@ -7,4 +7,4 @@ metadata:
 spec:
   type: library
   lifecycle: production
-  owner: atilsensalduz
+  owner: user:atilsensalduz
