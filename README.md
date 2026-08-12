@@ -1,3 +1,5 @@
+
+
 # new-relic-scim-go-client
 
 [![GoDoc](https://godoc.org/github.com/atilsensalduz/new-relic-scim-go-client?status.svg)](https://godoc.org/github.com/atilsensalduz/new-relic-scim-go-client)
@@ -62,8 +64,6 @@ For more detailed examples and documentation, see the [GoDoc](https://godoc.org/
 
 We welcome contributions to the new-relic-scim-go-client repository. If you have an idea for a new feature or bug fix, please open an issue to discuss it. If you would like to contribute code, please fork the repository and submit a pull request.
 
-License
+## License
+
 This library is licensed under the MIT License. See [LICENSE](https://github.com/atilsensalduz/new-relic-scim-go-client/blob/main/LICENSE) for more details.
-
-
-
